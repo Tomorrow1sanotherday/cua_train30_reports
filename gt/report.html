@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Train30 Function GT rollout and generated-action PPL · epoch 1 vs 3x-full</title>
+<title>Train30 Function GT rollout and generated-action PPL · Complex vs Atomic</title>
 <style>
 :root{--ink:#17232b;--muted:#53636d;--line:#cbd4d8;--paper:#fff;--bg:#f5f7f7;--teal:#006d68;--red:#a1272d;--amber:#835300}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,"Microsoft YaHei",sans-serif;letter-spacing:0}
@@ -18,9 +18,9 @@ h1{font-size:26px;line-height:1.25;margin:0 0 7px}h2{font-size:18px;margin:28px 
 @media(max-width:850px){.comparison{grid-template-columns:1fr}.task>summary{grid-template-columns:minmax(0,1fr) 45px;gap:7px}.score-pair{grid-column:1/-1}.references img{width:160px}}
 @media(max-width:450px){.wrap{padding:0 10px}h1{font-size:21px}.action-fields{grid-template-columns:1fr}}
 </style></head><body>
-<header><div class="wrap"><h1>Train30 · Function · GT supplied</h1><p class="muted">Slides01 epoch 1 and 3x-full iter422 · 30 training tasks · seed 0 · real LibreOffice rollout</p></div></header>
-<main class="wrap"><h2>Results</h2><div class="table-scroll"><table class="summary-table"><thead><tr><th>Model</th><th>Function v1</th><th>Generated PPL</th><th>Infra</th><th>High</th><th>Mid</th><th>Low</th></tr></thead><tbody><tr><td>Slides01 epoch 1</td><td>1/30</td><td>1.348</td><td>0</td><td>0/10</td><td>0/10</td><td>1/10</td></tr><tr><td>3x-full iter422</td><td>0/30</td><td>1.366</td><td>0</td><td>0/10</td><td>0/10</td><td>0/10</td></tr></tbody></table></div>
-<p class="muted">Per-task binary: PASS = 1, FAIL = 0; infrastructure errors are NA. Pair counts (epoch 1 : 3x-full): 0:0 = 29 · 1:0 = 1.</p>
+<header><div class="wrap"><h1>Train30 · Function · GT supplied</h1><p class="muted">Complex = Slides01 epoch 1; Atomic = 3x-full iter422 · 30 training tasks · seed 0 · real LibreOffice rollout</p></div></header>
+<main class="wrap"><h2>Results</h2><div class="table-scroll"><table class="summary-table"><thead><tr><th>Model</th><th>Function v1</th><th>Generated PPL</th><th>Infra</th><th>High</th><th>Mid</th><th>Low</th></tr></thead><tbody><tr><td>Complex</td><td>1/30</td><td>1.348</td><td>0</td><td>0/10</td><td>0/10</td><td>1/10</td></tr><tr><td>Atomic</td><td>0/30</td><td>1.366</td><td>0</td><td>0/10</td><td>0/10</td><td>0/10</td></tr></tbody></table></div>
+<p class="muted">Per-task binary: PASS = 1, FAIL = 0; infrastructure errors are NA. Infra counts unresolved harness or executor errors in the selected rollouts; 0 means all 30 scored tasks have valid final states. Pair counts (Complex : Atomic): 0:0 = 29 · 1:0 = 1.</p>
 <p class="muted">Generated-action PPL = exp(-sum chosen-token logprob / generated-token count), weighted by tokens across all actions, including done() and failed calls. It measures confidence in what the model generated, not correctness or target-action likelihood.</p>
 <p class="muted">Generated PPL by level (epoch 1 / 3x-full): high 1.393 / 1.440; mid 1.337 / 1.417; low 1.309 / 1.323.</p>
 <p class="muted">These are training examples. GT was shown to both models on all 30 tasks; only one selected training row originally included GT. Reference function calls replay at v1 30/30.</p>
@@ -32,7 +32,7 @@ h1{font-size:26px;line-height:1.25;margin:0 0 7px}h2{font-size:18px;margin:28px 
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000003__osf__public-presenta_s2/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000003__osf__public-presenta_s2/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.473 (370 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000003__osf__public-presenta_s2" src="assets/epoch1/crosspage3_000003__osf__public-presenta_s2/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -54,7 +54,7 @@ OBJ Google Shape;55;p16 [scale]: pos=False w=True h=False rot=True (d=21.10mm ma
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=33.79999923706055/28 d=18.56mm)
 TXT CuaRestore TextBox 2: text=True font=False size=False bold=False italic=True u=True case=True align=True color=False ls=True bullet=True pos=False w=True h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=0.97 font=&#x27;Calibri&#x27; size=28.100000381469727/14 d=18.28mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.616 (24 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000003__osf__public-presenta_s2" src="assets/full3x/crosspage3_000003__osf__public-presenta_s2/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -83,7 +83,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000018__osf__presentations_s1/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000018__osf__presentations_s1/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.347 (409 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000018__osf__presentations_s1" src="assets/epoch1/crosspage3_000018__osf__presentations_s1/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -108,7 +108,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=Fals
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=False color=True ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=28.0/28 d=49.89mm)
 TXT CuaRestore TextBox 3: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=20.0/18 d=16.40mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.065 (17 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000018__osf__presentations_s1" src="assets/full3x/crosspage3_000018__osf__presentations_s1/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -140,7 +140,7 @@ TXT CuaRestore TextBox 3: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000171__osf__presentations_s7/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000171__osf__presentations_s7/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.328 (234 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000171__osf__presentations_s7" src="assets/epoch1/crosspage3_000171__osf__presentations_s7/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -159,7 +159,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=False italic=True u=True case=True align=False color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=30.0/44 d=17.92mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=False bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=20.0/22 d=7.22mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.078 (17 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000171__osf__presentations_s7" src="assets/full3x/crosspage3_000171__osf__presentations_s7/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -185,7 +185,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000116__osf__presentations_s8/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000116__osf__presentations_s8/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.387 (390 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000116__osf__presentations_s8" src="assets/epoch1/crosspage3_000116__osf__presentations_s8/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -210,7 +210,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=True bold=True italic=True u
 TXT CuaRestore TextBox 2: text=True font=False size=False bold=False italic=True u=True case=True align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=23.0/20 d=83.02mm)
 TXT CuaRestore TextBox 3: text=True font=False size=False bold=False italic=True u=True case=True align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=False anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=23.0/20 d=35.13mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.888 (24 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000116__osf__presentations_s8" src="assets/full3x/crosspage3_000116__osf__presentations_s8/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -242,7 +242,7 @@ TXT CuaRestore TextBox 3: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000130__osf__presentations_s3/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000130__osf__presentations_s3/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.400 (200 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000130__osf__presentations_s3" src="assets/epoch1/crosspage3_000130__osf__presentations_s3/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -262,7 +262,7 @@ TXT CuaRestore TextBox 2: text=True font=False size=False bold=True italic=True 
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=False content=False render=True fit=False anchor=True rot=True (ratio=1.00 font=&#x27;Open Sans&#x27; size=36.0/28 d=8.46mm)
 TXT CuaRestore TextBox 2: text=True font=False size=False bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=18.0/14.5 d=3.65mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.404 (63 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000130__osf__presentations_s3" src="assets/full3x/crosspage3_000130__osf__presentations_s3/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -289,7 +289,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000155__osf__presentations_s9/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000155__osf__presentations_s9/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.382 (300 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000155__osf__presentations_s9" src="assets/epoch1/crosspage3_000155__osf__presentations_s9/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -310,7 +310,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
 OBJ Picture 7 [rotate]: pos=True w=True h=True rot=True (d=1.96mm match=&#x27;Picture 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=False w=True h=True content=True render=False fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=53.0/32 d=4.92mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.096 (43 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000155__osf__presentations_s9" src="assets/full3x/crosspage3_000155__osf__presentations_s9/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -336,7 +336,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000163__osf__presentations_s3/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000163__osf__presentations_s3/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.303 (390 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000163__osf__presentations_s3" src="assets/epoch1/crosspage3_000163__osf__presentations_s3/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -358,7 +358,7 @@ OBJ Google Shape;83;p13 [scale]: pos=False w=True h=True rot=True (d=45.75mm mat
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True u=True case=True align=False color=False ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Garamond&#x27; size=36.0/44 d=6.96mm)
 TXT CuaRestore TextBox 2: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=False bullet=False pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Garamond&#x27; size=32.0/28 d=4.80mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.961 (24 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000163__osf__presentations_s3" src="assets/full3x/crosspage3_000163__osf__presentations_s3/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -387,7 +387,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000164__osf__presentations_s1/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000164__osf__presentations_s1/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.410 (389 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000164__osf__presentations_s1" src="assets/epoch1/crosspage3_000164__osf__presentations_s1/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -406,7 +406,7 @@ TXT CuaRestore TextBox 2: text=True font=False size=True bold=True italic=True u
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=False h=True content=False render=True fit=False anchor=False rot=True (ratio=1.00 font=&#x27;Oswald&#x27; size=38.0/52 d=39.13mm)
 TXT CuaRestore TextBox 2: text=True font=False size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=28.0/28 d=92.44mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.911 (24 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000164__osf__presentations_s1" src="assets/full3x/crosspage3_000164__osf__presentations_s1/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -432,7 +432,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000169__osf__presentations_s24/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000169__osf__presentations_s24/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.472 (502 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000169__osf__presentations_s24" src="assets/epoch1/crosspage3_000169__osf__presentations_s24/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -460,7 +460,7 @@ OBJ Google Shape;265;p37 [scale]: pos=True w=True h=True rot=True (d=7.15mm matc
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True u=True case=True align=True color=False ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=28.0/36 d=1.32mm)
 ZORDER visual_edges=[(&#x27;Google Shape;264;p37&#x27;, &#x27;Google Shape;265;p37&#x27;)] restored=[&#x27;CuaRestore TextBox 1&#x27;, &#x27;Google Shape;265;p37&#x27;, &#x27;Google Shape;264;p37&#x27;, &#x27;Google Shape;263;p37&#x27;] violations=[{&#x27;below&#x27;: &#x27;Google Shape;264;p37&#x27;, &#x27;above&#x27;: &#x27;Google Shape;265;p37&#x27;, &#x27;actual_below_index&#x27;: 2, &#x27;actual_above_index&#x27;: 1}] match=False</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.755 (24 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000169__osf__presentations_s24" src="assets/full3x/crosspage3_000169__osf__presentations_s24/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -492,7 +492,7 @@ ZORDER visual_edges=[(&#x27;Google Shape;264;p37&#x27;, &#x27;Google Shape;265;p
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000170__osf__presentations_s11/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000170__osf__presentations_s11/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.399 (210 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000170__osf__presentations_s11" src="assets/epoch1/crosspage3_000170__osf__presentations_s11/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -511,7 +511,7 @@ TXT CuaRestore TextBox 2: text=True font=False size=False bold=True italic=True 
 TXT CuaRestore TextBox 1: text=True font=False size=True bold=True italic=True u=True case=True align=False color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Trebuchet MS&#x27; size=30.0/32 d=16.15mm)
 TXT CuaRestore TextBox 2: text=True font=False size=False bold=True italic=True u=True case=False align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Trebuchet MS&#x27; size=36.0/24 d=62.73mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.077 (17 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000170__osf__presentations_s11" src="assets/full3x/crosspage3_000170__osf__presentations_s11/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -537,7 +537,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000003__osf__public-presenta_s16/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000003__osf__public-presenta_s16/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.203 (371 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000003__osf__public-presenta_s16" src="assets/epoch1/crosspage3_000003__osf__public-presenta_s16/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -557,7 +557,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=False size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Arial&#x27; size=36.0/35 d=8.41mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=False ls=False bullet=True pos=True w=True h=False content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=32.0/30 d=8.94mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.245 (121 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000003__osf__public-presenta_s16" src="assets/full3x/crosspage3_000003__osf__public-presenta_s16/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -584,7 +584,7 @@ TXT CuaRestore TextBox 2: text=True font=False size=False bold=False italic=True
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000021__osf__presentations_s30/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000021__osf__presentations_s30/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.293 (725 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000021__osf__presentations_s30" src="assets/epoch1/crosspage3_000021__osf__presentations_s30/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -612,7 +612,7 @@ OBJ Shape 139 [rotate]: pos=True w=False h=False rot=False (d=6.88mm match=&#x27
 OBJ Picture 2 [scale]: pos=False w=True h=True rot=True (d=32.92mm match=&#x27;Picture 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Liberation Sans&#x27; size=18.0/36 d=4.38mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.285 (100 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000021__osf__presentations_s30" src="assets/full3x/crosspage3_000021__osf__presentations_s30/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -647,7 +647,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000041__osf__presentations_s6/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000041__osf__presentations_s6/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.305 (448 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000041__osf__presentations_s6" src="assets/epoch1/crosspage3_000041__osf__presentations_s6/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -669,7 +669,7 @@ OBJ Google Shape;118;p16 [scale]: pos=False w=True h=True rot=True (d=42.68mm ma
 OBJ Google Shape;120;p16 [rotate]: pos=False w=False h=False rot=True (d=106.44mm match=&#x27;Google Shape;118;p 2&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;PT Serif&#x27; size=18.0/14 d=14.30mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.647 (95 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000041__osf__presentations_s6" src="assets/full3x/crosspage3_000041__osf__presentations_s6/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -695,7 +695,7 @@ TXT CuaRestore TextBox 1: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000072__osf__presentations_s12/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000072__osf__presentations_s12/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.426 (232 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000072__osf__presentations_s12" src="assets/epoch1/crosspage3_000072__osf__presentations_s12/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -715,7 +715,7 @@ TXT CuaRestore TextBox 2: text=True font=False size=True bold=True italic=True u
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=False content=False render=True fit=False anchor=False rot=True (ratio=1.00 font=&#x27;Arial&#x27; size=30.0/32 d=5.10mm)
 TXT CuaRestore TextBox 2: text=True font=False size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=18.0/18 d=22.60mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.238 (140 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000072__osf__presentations_s12" src="assets/full3x/crosspage3_000072__osf__presentations_s12/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -745,7 +745,7 @@ TXT CuaRestore TextBox 2: text=False font=False size=True bold=True italic=True 
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000114__osf__presentations_s12/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000114__osf__presentations_s12/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.382 (308 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000114__osf__presentations_s12" src="assets/epoch1/crosspage3_000114__osf__presentations_s12/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -764,7 +764,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=True bold=True italic=True u
 OBJ Picture 7 [rotate]: pos=False w=True h=True rot=False (d=38.21mm match=&#x27;Picture 2&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=32.0/32 d=4.22mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.572 (82 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000114__osf__presentations_s12" src="assets/full3x/crosspage3_000114__osf__presentations_s12/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -790,7 +790,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000131__osf__presentation_s6/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000131__osf__presentation_s6/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.388 (864 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000131__osf__presentation_s6" src="assets/epoch1/crosspage3_000131__osf__presentation_s6/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -824,7 +824,7 @@ OBJ Google Shape;93;p18 [scale]: pos=False w=True h=True rot=True (d=24.57mm mat
 OBJ Google Shape;94;p18 [rotate]: pos=True w=True h=True rot=True (d=7.26mm match=&#x27;Google Shape;94;p 4&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Verdana&#x27; size=18.0/30 d=7.39mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.442 (59 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000131__osf__presentation_s6" src="assets/full3x/crosspage3_000131__osf__presentation_s6/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -856,7 +856,7 @@ TXT CuaRestore TextBox 1: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000143__osf__presentation_s9/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000143__osf__presentation_s9/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.373 (297 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000143__osf__presentation_s9" src="assets/epoch1/crosspage3_000143__osf__presentation_s9/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -875,7 +875,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
 OBJ Shape 517 [rotate]: pos=False w=True h=True rot=False (d=26.33mm match=&#x27;Shape 2&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Arial&#x27; size=38.0/44 d=1.89mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.475 (60 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000143__osf__presentation_s9" src="assets/full3x/crosspage3_000143__osf__presentation_s9/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -901,7 +901,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000161__osf__presentations_s6/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000161__osf__presentations_s6/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.385 (305 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000161__osf__presentations_s6" src="assets/epoch1/crosspage3_000161__osf__presentations_s6/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -920,7 +920,7 @@ TXT CuaRestore TextBox 1: text=True font=True size=False bold=True italic=True u
 OBJ Google Shape;72;g5bc958ab81_1_21 [rotate]: pos=True w=True h=True rot=True (d=9.40mm match=&#x27;Google Shape;72;g5bc958ab81_1_ 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=True italic=True u=True case=False align=True color=True ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=30.0/24 d=63.12mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.479 (90 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000161__osf__presentations_s6" src="assets/full3x/crosspage3_000161__osf__presentations_s6/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -946,7 +946,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000171__osf__presentations_s12/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000171__osf__presentations_s12/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.311 (244 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000171__osf__presentations_s12" src="assets/epoch1/crosspage3_000171__osf__presentations_s12/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -965,7 +965,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=False italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=30.0/44 d=17.92mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=False bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=24.0/22 d=6.72mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.393 (214 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000171__osf__presentations_s12" src="assets/full3x/crosspage3_000171__osf__presentations_s12/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -991,7 +991,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000175__osf__presentations_s11/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000175__osf__presentations_s11/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.352 (368 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000175__osf__presentations_s11" src="assets/epoch1/crosspage3_000175__osf__presentations_s11/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1013,7 +1013,7 @@ OBJ Picture 1 [scale]: pos=True w=False h=False rot=True (d=5.60mm match=&#x27;P
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=30.0/44 d=18.58mm)
 TXT CuaRestore TextBox 2: text=True font=True size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=18.0/28 d=8.14mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.647 (116 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000175__osf__presentations_s11" src="assets/full3x/crosspage3_000175__osf__presentations_s11/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1048,7 +1048,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000126__osf__presentation_s26/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000126__osf__presentation_s26/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.264 (219 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000126__osf__presentation_s26" src="assets/epoch1/crosspage3_000126__osf__presentation_s26/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1067,7 +1067,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Verdana&#x27; size=24.0/24 d=9.26mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Verdana&#x27; size=14.0/14 d=5.80mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.092 (17 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000126__osf__presentation_s26" src="assets/full3x/crosspage3_000126__osf__presentation_s26/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1099,7 +1099,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000157__osf__presentations_s19/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000157__osf__presentations_s19/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.241 (241 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000157__osf__presentations_s19" src="assets/epoch1/crosspage3_000157__osf__presentations_s19/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1123,7 +1123,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=True render=False fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;MS Reference Sans Serif&#x27; size=18.0/18 d=3.58mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=False case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=False render=False fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;MS Reference Sans Serif&#x27; size=18.0/18 d=10.48mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.299 (239 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000157__osf__presentations_s19" src="assets/full3x/crosspage3_000157__osf__presentations_s19/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1155,7 +1155,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000168__osf__presentations_s13/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000168__osf__presentations_s13/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge pass">1 · PASS</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge pass">1 · PASS</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 PASS · generated PPL 1.345 (219 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000168__osf__presentations_s13" src="assets/epoch1/crosspage3_000168__osf__presentations_s13/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1174,7 +1174,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=44.0/44 d=8.15mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=22.0/22 d=6.95mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.140 (243 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000168__osf__presentations_s13" src="assets/full3x/crosspage3_000168__osf__presentations_s13/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1206,7 +1206,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000170__osf__presentations_s13/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000170__osf__presentations_s13/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.308 (241 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000170__osf__presentations_s13" src="assets/epoch1/crosspage3_000170__osf__presentations_s13/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1225,7 +1225,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=False align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=24.0/24 d=16.59mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=False bullet=False pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Garamond&#x27; size=24.0/24 d=17.40mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.251 (268 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000170__osf__presentations_s13" src="assets/full3x/crosspage3_000170__osf__presentations_s13/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1254,7 +1254,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000173__osf__presentations_s27/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000173__osf__presentations_s27/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.346 (209 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000173__osf__presentations_s27" src="assets/epoch1/crosspage3_000173__osf__presentations_s27/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1270,7 +1270,7 @@ TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=32.0/32 d=8.28mm)</pre></details><details class="checks"><summary>v1 baseline with relaxed bullet indent · 2 checks</summary><pre>OBJ Picture 4 [scale]: pos=True w=True h=True rot=True (d=18.75mm match=&#x27;Picture 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=32.0/32 d=8.28mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.474 (85 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000173__osf__presentations_s27" src="assets/full3x/crosspage3_000173__osf__presentations_s27/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1298,7 +1298,7 @@ TXT CuaRestore TextBox 1: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000183__osf__presentation_s14/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000183__osf__presentation_s14/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.276 (251 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000183__osf__presentation_s14" src="assets/epoch1/crosspage3_000183__osf__presentation_s14/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1317,7 +1317,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=36.0/36 d=15.97mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Hind&#x27; size=18.0/18 d=6.75mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.379 (40 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000183__osf__presentation_s14" src="assets/full3x/crosspage3_000183__osf__presentation_s14/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1351,7 +1351,7 @@ Normal distribution&quot; into the text box, set the font to Consolas, set the &
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000195__osf__presentations_s4/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000195__osf__presentations_s4/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.365 (198 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000195__osf__presentations_s4" src="assets/epoch1/crosspage3_000195__osf__presentations_s4/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1374,7 +1374,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=False render=True fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Consolas&#x27; size=48.0/48 d=11.93mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=False render=False fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Consolas&#x27; size=18.0/18 d=12.83mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.643 (100 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000195__osf__presentations_s4" src="assets/full3x/crosspage3_000195__osf__presentations_s4/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1408,7 +1408,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000196__osf__presentations_s11/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000196__osf__presentations_s11/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.258 (419 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000196__osf__presentations_s11" src="assets/epoch1/crosspage3_000196__osf__presentations_s11/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1435,7 +1435,7 @@ TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Consolas&#x27; size=10.0/10 d=10.16mm)
 ZORDER visual_edges=[(&#x27;CuaRestore TextBox 1&#x27;, &#x27;Grafik 4&#x27;)] restored=[&#x27;CuaRestore TextBox 1&#x27;, &#x27;CuaRestore TextBox 2&#x27;, &#x27;Grafik 4&#x27;, &#x27;Grafik 5&#x27;] violations=[] match=True</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.373 (283 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000196__osf__presentations_s11" src="assets/full3x/crosspage3_000196__osf__presentations_s11/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1473,7 +1473,7 @@ ZORDER visual_edges=[(&#x27;CuaRestore TextBox 1&#x27;, &#x27;Grafik 4&#x27;)] r
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000202__osf__presentations_s5/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000202__osf__presentations_s5/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.351 (309 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000202__osf__presentations_s5" src="assets/epoch1/crosspage3_000202__osf__presentations_s5/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1495,7 +1495,7 @@ OBJ Picture 2 [rotate]: pos=False w=True h=True rot=True (d=19.95mm match=&#x27;
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=44.0/44 d=9.29mm)
 ZORDER visual_edges=[(&#x27;Picture 4&#x27;, &#x27;Picture 2&#x27;)] restored=[&#x27;CuaRestore TextBox 1&#x27;, &#x27;Picture 4&#x27;, &#x27;Picture 2&#x27;] violations=[] match=True</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.440 (150 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000202__osf__presentations_s5" src="assets/full3x/crosspage3_000202__osf__presentations_s5/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>
@@ -1532,7 +1532,7 @@ ZORDER visual_edges=[(&#x27;Picture 4&#x27;, &#x27;Picture 2&#x27;)] restored=[]
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000246__osf__presentations_s1/gt.jpg" alt="Ground truth screenshot" loading="lazy"><figcaption>GT shown to both models</figcaption></figure>
           <figure><img src="assets/epoch1/crosspage3_000246__osf__presentations_s1/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.363 (369 tokens)</p>
       
       <div class="image-shell"><img id="image-epoch1-crosspage3_000246__osf__presentations_s1" src="assets/epoch1/crosspage3_000246__osf__presentations_s1/step_000.jpg" alt="epoch1 step screenshot" loading="lazy"></div>
@@ -1557,7 +1557,7 @@ TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=False align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Gill Sans MT&#x27; size=16.0/16 d=12.17mm)
 ZORDER visual_edges=[(&#x27;Picture 10&#x27;, &#x27;Picture 7&#x27;)] restored=[&#x27;CuaRestore TextBox 1&#x27;, &#x27;CuaRestore TextBox 2&#x27;, &#x27;Picture 10&#x27;, &#x27;Picture 7&#x27;] violations=[] match=True</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.339 (254 tokens)</p>
       
       <div class="image-shell"><img id="image-full3x-crosspage3_000246__osf__presentations_s1" src="assets/full3x/crosspage3_000246__osf__presentations_s1/step_000.jpg" alt="full3x step screenshot" loading="lazy"></div>

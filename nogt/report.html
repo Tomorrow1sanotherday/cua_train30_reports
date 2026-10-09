@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Train30 Function no-GT rollout and generated-action PPL · epoch 1 vs 3x-full</title>
+<title>Train30 Function no-GT rollout and generated-action PPL · Complex vs Atomic</title>
 <style>
 :root{--ink:#17232b;--muted:#53636d;--line:#cbd4d8;--paper:#fff;--bg:#f5f7f7;--teal:#006d68;--red:#a1272d;--amber:#835300}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,"Microsoft YaHei",sans-serif;letter-spacing:0}
@@ -18,9 +18,9 @@ h1{font-size:26px;line-height:1.25;margin:0 0 7px}h2{font-size:18px;margin:28px 
 @media(max-width:850px){.comparison{grid-template-columns:1fr}.task>summary{grid-template-columns:minmax(0,1fr) 45px;gap:7px}.score-pair{grid-column:1/-1}.references img{width:160px}}
 @media(max-width:450px){.wrap{padding:0 10px}h1{font-size:21px}.action-fields{grid-template-columns:1fr}}
 </style></head><body>
-<header><div class="wrap"><h1>Train30 · Function · no GT</h1><p class="muted">Slides01 epoch 1 and 3x-full iter422 · 30 training tasks · seed 0 · real LibreOffice rollout</p></div></header>
-<main class="wrap"><h2>Results</h2><div class="table-scroll"><table class="summary-table"><thead><tr><th>Model</th><th>Function v1</th><th>Generated PPL</th><th>Infra</th><th>High</th><th>Mid</th><th>Low</th></tr></thead><tbody><tr><td>Slides01 epoch 1</td><td>0/30</td><td>1.392</td><td>0</td><td>0/10</td><td>0/10</td><td>0/10</td></tr><tr><td>3x-full iter422</td><td>0/30</td><td>1.051</td><td>0</td><td>0/10</td><td>0/10</td><td>0/10</td></tr></tbody></table></div>
-<p class="muted">Per-task binary: PASS = 1, FAIL = 0; infrastructure errors are NA. Pair counts (epoch 1 : 3x-full): 0:0 = 30.</p>
+<header><div class="wrap"><h1>Train30 · Function · no GT</h1><p class="muted">Complex = Slides01 epoch 1; Atomic = 3x-full iter422 · 30 training tasks · seed 0 · real LibreOffice rollout</p></div></header>
+<main class="wrap"><h2>Results</h2><div class="table-scroll"><table class="summary-table"><thead><tr><th>Model</th><th>Function v1</th><th>Generated PPL</th><th>Infra</th><th>High</th><th>Mid</th><th>Low</th></tr></thead><tbody><tr><td>Complex</td><td>0/30</td><td>1.392</td><td>0</td><td>0/10</td><td>0/10</td><td>0/10</td></tr><tr><td>Atomic</td><td>0/30</td><td>1.051</td><td>0</td><td>0/10</td><td>0/10</td><td>0/10</td></tr></tbody></table></div>
+<p class="muted">Per-task binary: PASS = 1, FAIL = 0; infrastructure errors are NA. Infra counts unresolved harness or executor errors in the selected rollouts; 0 means all 30 scored tasks have valid final states. Pair counts (Complex : Atomic): 0:0 = 30.</p>
 <p class="muted">Generated-action PPL = exp(-sum chosen-token logprob / generated-token count), weighted by tokens across all actions, including done() and failed calls. It measures confidence in what the model generated, not correctness or target-action likelihood.</p>
 <p class="muted">Generated PPL by level (epoch 1 / 3x-full): high 1.484 / 1.473; mid 1.363 / 1.032; low 1.315 / 1.095.</p>
 <p class="muted">These are training examples. No GT image was supplied to either model. Reference function calls replay at v1 30/30.</p>
@@ -32,7 +32,7 @@ h1{font-size:26px;line-height:1.25;margin:0 0 7px}h2{font-size:18px;margin:28px 
       <div class="task-body"><p class="instruction">Make a slide on the hypo-deductive model of the scientific method, showing common research biases at each cycle step. Use the two images on slide 1, title it &quot;Hypo-Deductive Model of the Scientific Method&quot;, and add the matching Nature reference on the blank work slide.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000003__osf__public-presenta_s2/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.511 (355 tokens)</p>
       
       
@@ -55,7 +55,7 @@ OBJ Google Shape;55;p16 [scale]: pos=False w=True h=True rot=True (d=226.65mm ma
 TXT CuaRestore TextBox 1: text=True font=False size=True bold=False italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=28.0/28 d=8.75mm)
 TXT CuaRestore TextBox 2: text=False font=False size=True bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=0.76 font=&#x27;Calibri&#x27; size=13.0/14 d=217.80mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.044 (17 tokens)</p>
       
       
@@ -84,7 +84,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Make a title slide on the blank second slide for Stacy Shaw’s open science practices talk at WPI’s Data and Open Science Workshop Week, using the campus aerial photo and WPI logo from slide 1.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000018__osf__presentations_s1/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.404 (345 tokens)</p>
       
       
@@ -110,7 +110,7 @@ TXT CuaRestore TextBox 1: text=False font=False size=False bold=True italic=Fals
 TXT CuaRestore TextBox 2: shape missing
 TXT CuaRestore TextBox 3: text=True font=False size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=False pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=0.95 font=&#x27;Arial&#x27; size=18.0/18 d=144.95mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.390 (43 tokens)</p>
       
       
@@ -142,7 +142,7 @@ TXT CuaRestore TextBox 3: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Create a slide titled &#x27;Challenges&#x27; listing core data work challenges as a short bulleted list, paired with the binary code tunnel image from slide 1.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000171__osf__presentations_s7/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.441 (221 tokens)</p>
       
       
@@ -163,7 +163,7 @@ TXT CuaRestore TextBox 2: text=False font=True size=False bold=True italic=True 
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=False italic=True u=True case=True align=False color=False ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=30.0/44 d=17.94mm)
 TXT CuaRestore TextBox 2: text=False font=True size=False bold=True italic=True u=True case=True align=True color=False ls=False bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=0.41 font=&#x27;Arial&#x27; size=28.0/22 d=29.17mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.389 (110 tokens)</p>
       
       
@@ -189,7 +189,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Use the two research portal screenshots on slide 1 to build a slide on the blank work slide titled &#x27;Disciplinary research data&#x27;, pairing the tDAR archive screenshot with &#x27;tdar.org&#x27; and the CAP LTER portal screenshot with &#x27;data.sustainability.asu.edu&#x27;.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000116__osf__presentations_s8/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.505 (928 tokens)</p>
       <p class="muted">Recovered rollout selected after an executor HTTP 500; the original attempt remains in the DGX shard.</p>
       
@@ -236,7 +236,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
 TXT CuaRestore TextBox 2: text=True font=False size=False bold=True italic=True u=False case=True align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Garamond&#x27; size=36.0/20 d=172.12mm)
 TXT CuaRestore TextBox 3: text=False font=False size=False bold=False italic=True u=False case=True align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=False anchor=True rot=True (ratio=0.82 font=&#x27;Helvetica Neue&#x27; size=32.0/20 d=108.31mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.960 (24 tokens)</p>
       
       
@@ -268,7 +268,7 @@ TXT CuaRestore TextBox 3: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Create a slide on the blank second slide about the early productive vocabulary spurt in toddlers 16 to 30 months old. Use the scatter plot from slide 1, title it &quot;Early vocabulary spurt&quot;, and add the source label wordbank.stanford.edu.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000130__osf__presentations_s3/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.459 (206 tokens)</p>
       
       
@@ -289,7 +289,7 @@ TXT CuaRestore TextBox 2: text=True font=False size=False bold=True italic=True 
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=False content=False render=True fit=False anchor=True rot=True (ratio=1.00 font=&#x27;Open Sans&#x27; size=36.0/28 d=7.18mm)
 TXT CuaRestore TextBox 2: text=True font=False size=False bold=True italic=True u=False case=True align=True color=False ls=True bullet=True pos=False w=True h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=18.0/14.5 d=23.68mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.826 (50 tokens)</p>
       
       
@@ -316,7 +316,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Make a poll slide asking which face looks more germy, titled &quot;Which face looks more germy?&quot;, on the blank second slide. Use the two grayscale face photos from slide 1.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000155__osf__presentations_s9/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.367 (297 tokens)</p>
       
       
@@ -338,7 +338,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True
 OBJ Picture 7 [rotate]: pos=False w=True h=True rot=True (d=159.95mm match=&#x27;Picture 2&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True u=True case=True align=True color=False ls=True bullet=True pos=False w=True h=True content=True render=False fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=28.0/32 d=9.17mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.545 (45 tokens)</p>
       
       
@@ -364,7 +364,7 @@ TXT CuaRestore TextBox 1: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Make a slide for the CurateND digital exhibits project titled &#x27;Grant Deliverables&#x27;, with bullet points covering its four core grant deliverables. Use the project interface screenshots available on slide 1.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000163__osf__presentations_s3/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.484 (373 tokens)</p>
       
       
@@ -387,7 +387,7 @@ OBJ Google Shape;83;p13 [scale]: pos=False w=False h=False rot=True (d=143.34mm 
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True u=True case=True align=False color=False ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Garamond&#x27; size=36.0/44 d=16.34mm)
 TXT CuaRestore TextBox 2: text=False font=False size=False bold=True italic=True u=True case=True align=True color=False ls=False bullet=True pos=False w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=0.32 font=&#x27;Garamond&#x27; size=18.0/28 d=20.79mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.499 (42 tokens)</p>
       
       
@@ -416,7 +416,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Make a title slide for a Flash UX talk on academic museums, headlined &quot;If you give a college student a donut&quot;, using the combined Notre Dame and Snite Museum of Art logo from slide 1.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000164__osf__presentations_s1/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.769 (243 tokens)</p>
       
       
@@ -436,7 +436,7 @@ TXT CuaRestore TextBox 2: text=False font=False size=False bold=True italic=True
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True u=True case=True align=False color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=False anchor=False rot=True (ratio=1.00 font=&#x27;Oswald&#x27; size=38.0/52 d=39.13mm)
 TXT CuaRestore TextBox 2: text=False font=False size=False bold=True italic=True u=True case=True align=False color=False ls=True bullet=False pos=False w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=0.55 font=&#x27;Montserrat&#x27; size=18.0/28 d=92.44mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.937 (24 tokens)</p>
       
       
@@ -462,7 +462,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Build a slide titled “Redcoats-Mist” for an art collection entry, using the pictures on slide 1. The page presents the artwork alongside its metadata panel and a grid of related collection items.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000169__osf__presentations_s24/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.400 (444 tokens)</p>
       
       
@@ -488,7 +488,7 @@ OBJ Google Shape;265;p37 [scale]: pos=False w=True h=True rot=True (d=21.66mm ma
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True u=True case=True align=True color=False ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=28.0/36 d=11.84mm)
 ZORDER visual_edges=[(&#x27;Google Shape;264;p37&#x27;, &#x27;Google Shape;265;p37&#x27;)] restored=[&#x27;CuaRestore TextBox 1&#x27;, &#x27;Google Shape;265;p37&#x27;, &#x27;Google Shape;264;p37&#x27;, &#x27;Google Shape;263;p37&#x27;] violations=[{&#x27;below&#x27;: &#x27;Google Shape;264;p37&#x27;, &#x27;above&#x27;: &#x27;Google Shape;265;p37&#x27;, &#x27;actual_below_index&#x27;: 2, &#x27;actual_above_index&#x27;: 1}] match=False</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.014 (17 tokens)</p>
       
       
@@ -520,7 +520,7 @@ ZORDER visual_edges=[(&#x27;Google Shape;264;p37&#x27;, &#x27;Google Shape;265;p
       <div class="task-body"><p class="instruction">Build a &#x27;Guiding Principles&#x27; slide centered on documentation, communication and collaboration as core practices, using the sunlit grassy photo of two dogs from slide 1 as the main visual.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000170__osf__presentations_s11/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.598 (222 tokens)</p>
       
       
@@ -540,7 +540,7 @@ TXT CuaRestore TextBox 2: text=True font=False size=False bold=False italic=True
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=False color=False ls=True bullet=False pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=0.94 font=&#x27;PT Serif&#x27; size=28.0/32 d=15.59mm)
 TXT CuaRestore TextBox 2: text=True font=False size=False bold=False italic=True u=True case=False align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Garamond&#x27; size=36.0/24 d=64.60mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.038 (17 tokens)</p>
       
       
@@ -566,7 +566,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Slide 1 holds the circular dotted decorative graphic, and slide 2 is the blank work page to compose. Across the top of the slide place the red title &quot;What problems does preregistration fix?&quot;, and in the central page area place the dark blue body text &quot;Preregistration makes the distinction between confirmatory (hypothesis testing) and exploratory (hypothesis generating) research more clear.&quot;, with only the words confirmatory and exploratory set bold. Place the copied circular dotted graphic as a small mark in the bottom right corner.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000003__osf__public-presenta_s16/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.242 (363 tokens)</p>
       
       
@@ -587,7 +587,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=False size=True bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Arial&#x27; size=35.0/35 d=26.13mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=False ls=False bullet=True pos=True w=False h=False content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=32.0/30 d=15.63mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.253 (108 tokens)</p>
       
       
@@ -613,7 +613,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Slide 1 holds the open-science logos and research workflow diagram to use, and slide 2 is the blank work page to compose. Across the top of the slide, center the black title text “Open Science can help!”. Below the title, arrange the three hexagonal open-practice badges in an even horizontal row: the red Preregistered badge at left, the blue Open Data badge in the middle, and the orange Open Materials badge at right. Center the orange Open Access logo directly beneath this badge row, with the blue graduated five-step research workflow diagram centered across the slide bottom below the logo.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000021__osf__presentations_s30/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.346 (725 tokens)</p>
       
       
@@ -642,7 +642,7 @@ OBJ Shape 139 [rotate]: pos=False w=False h=False rot=False (d=21.36mm match=&#x
 OBJ Picture 2 [scale]: pos=False w=True h=True rot=True (d=33.06mm match=&#x27;Picture 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Liberation Sans&#x27; size=18.0/36 d=4.38mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.406 (95 tokens)</p>
       
       
@@ -677,7 +677,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
       <div class="task-body"><p class="instruction">Slide 1 holds the two source pictures to use, and you will compose the new page on the blank second slide. Place the small, wide Data Observatory wordmark image at the top left, aligned to the edge of the existing curved landscape panel. Position the larger, nearly square EVI tutorial screenshot—showing code snippets, vegetation index heatmap plots and explanatory content—in the main central slide area. Add a text box across the bottom center containing &quot;https://github.com/Data-Observatory/DataCubeTraining&quot;.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000041__osf__presentations_s6/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.369 (303 tokens)</p>
       
       
@@ -697,7 +697,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
 OBJ Google Shape;120;p16 [rotate]: pos=True w=True h=True rot=True (d=6.23mm match=&#x27;Google Shape;120;p 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;PT Serif&#x27; size=18.0/14 d=5.82mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.015 (5184 tokens)</p>
       
       
@@ -723,7 +723,7 @@ TXT CuaRestore TextBox 1: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Slide 1 holds the pie chart image to use, and slide 2 is the blank work slide to compose. Place the black, left-aligned title &quot;Re-use purposes of qualitative data downloaded from UK Data Service, 2002-2016&quot; across the upper section of the page, then center the pie chart from slide 1 below the title as the page&#x27;s main visual, with its built-in category legend sitting to the right of the graphic. Add the dark blue, left-aligned source credit &quot;Source: Bishop &amp; Kuula-Luumi, Sage Open 2016&quot; below the chart toward the lower left of the slide.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000072__osf__presentations_s12/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.430 (286 tokens)</p>
       
       
@@ -744,7 +744,7 @@ TXT CuaRestore TextBox 2: text=True font=False size=True bold=True italic=True u
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=False content=False render=True fit=False anchor=False rot=True (ratio=1.00 font=&#x27;Arial&#x27; size=18.0/32 d=8.94mm)
 TXT CuaRestore TextBox 2: text=True font=False size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=18.0/18 d=74.59mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.460 (84 tokens)</p>
       
       
@@ -771,7 +771,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Slide 1 holds two diagram pictures to use, and slide 2 is the blank work slide for the new page. Set the bold dark blue title &quot;KED-Library Partnership&quot; across the upper section of the slide. Place the three-circle Venn diagram showing overlapping service responsibilities of research units, the library, and the knowledge enterprise on the right of the main body, and the multicoloured cyclic arrow diagram outlining the research data lifecycle stages on the left, positioning the two diagrams side by side to fill the page&#x27;s central area.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000114__osf__presentations_s12/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.412 (362 tokens)</p>
       
       
@@ -791,7 +791,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
 OBJ Picture 7 [rotate]: pos=False w=False h=False rot=True (d=34.72mm match=&#x27;Picture 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=28.0/32 d=4.03mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.020 (4786 tokens)</p>
       
       
@@ -817,7 +817,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True
       <div class="task-body"><p class="instruction">Slide 1 holds four scrambled, misaligned statistical chart images to use, and slide 2 is the blank dark work slide to compose the new page on. Place the light gray heading &quot;Results&quot; at the upper left, then arrange the four charts in a neat two-by-two grid across the rest of the slide: the correlation table sits below the heading in the upper left block, the sleep-depression scatter plot fills the upper right block, the depression score boxplot fills the lower left block, and the sleep quality score boxplot fills the lower right block.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000131__osf__presentation_s6/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.368 (537 tokens)</p>
       
       
@@ -843,7 +843,7 @@ OBJ Google Shape;93;p18 [scale]: pos=False w=True h=True rot=False (d=18.52mm ma
 OBJ Google Shape;94;p18 [rotate]: pos=False w=False h=False rot=True (d=17.67mm match=&#x27;Google Shape;94;p 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Verdana&#x27; size=18.0/30 d=22.77mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.801 (59 tokens)</p>
       
       
@@ -875,7 +875,7 @@ TXT CuaRestore TextBox 1: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Slide 1 holds two picture assets, and slide 2 is the blank work page to compose. Center the large black title &quot;Decision Trees&quot; across the top of the slide. Position the tall vertical decision flowchart down the left side of the main content area, and place the wider PolicyModels open-data tool interface screenshot in the space to its right, below the title.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000143__osf__presentation_s9/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.387 (297 tokens)</p>
       
       
@@ -895,7 +895,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
 OBJ Shape 517 [rotate]: pos=True w=True h=True rot=False (d=15.46mm match=&#x27;Shape 2&#x27;)
 TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Arial&#x27; size=30.0/44 d=1.72mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.835 (82 tokens)</p>
       
       
@@ -921,7 +921,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=True italic=True 
       <div class="task-body"><p class="instruction">Slide 1 holds the two source pictures, and slide 2 is the blank page to compose. At the upper left, place the bold blue title &quot;The Collections&quot; over the yellow chevron band. Below the title, arrange the two pictures side by side across the main slide body: the square city street scene painting sits on the left, and the upright sepia vintage portrait of the seated uniformed man sits on the right, sized as matching large primary visuals.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000161__osf__presentations_s6/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.386 (305 tokens)</p>
       
       
@@ -941,7 +941,7 @@ TXT CuaRestore TextBox 1: text=True font=True size=False bold=True italic=True u
 OBJ Google Shape;72;g5bc958ab81_1_21 [rotate]: pos=True w=True h=True rot=True (d=11.48mm match=&#x27;Google Shape;72;g5bc958ab81_1_ 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=True italic=True u=True case=False align=True color=True ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=30.0/24 d=21.91mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.032 (4787 tokens)</p>
       
       
@@ -967,7 +967,7 @@ TXT CuaRestore TextBox 1: text=True font=False size=False bold=False italic=True
       <div class="task-body"><p class="instruction">Slide 1 holds the rotated road-and-green-fields landscape photograph to use, and slide 2 is the blank work page to compose. Place a blue, centered title reading &quot;Future challenges&quot; across the upper portion of the slide. Below the title, set a blue bulleted list on the left with entries &quot;Open Source&quot;; &quot;Data Sourcing&quot;; &quot;Metadata quality&quot;; &quot;Digital Asset Management&quot;; &quot;Continuous Improvement&quot;, and position the straightened landscape photograph on the right, level with the list.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000171__osf__presentations_s12/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.328 (237 tokens)</p>
       
       
@@ -988,7 +988,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=False bold=True italic=True u
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=True italic=True u=True case=True align=False color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=30.0/44 d=17.92mm)
 TXT CuaRestore TextBox 2: text=True font=True size=False bold=True italic=True u=True case=True align=True color=True ls=False bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=34.0/22 d=30.48mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.825 (85 tokens)</p>
       
       
@@ -1014,7 +1014,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
       <div class="task-body"><p class="instruction">Slide 1 holds the two pictures to use, and slide 2 is the blank page to compose. Place the large, centered title “Thank you!” across the upper section, then arrange the middle area with the upright portrait of the man in the checkered shirt at middle left and the UCWBC logo with blue and yellow smile icons centered directly below the title. Finish with the contact line “Contact: fjgonzal@berkeley.edu” across the lower center, styling only the “Contact:” portion in bold.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000175__osf__presentations_s11/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.400 (368 tokens)</p>
       
       
@@ -1037,7 +1037,7 @@ OBJ Picture 1 [scale]: pos=False w=False h=False rot=True (d=99.23mm match=&#x27
 TXT CuaRestore TextBox 1: text=True font=True size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=30.0/44 d=18.53mm)
 TXT CuaRestore TextBox 2: text=True font=True size=False bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=16.0/28 d=45.28mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.018 (5179 tokens)</p>
       
       
@@ -1072,7 +1072,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
 7. Drag the picture&#x27;s rotation handle until the image is horizontally level, then resize and position it in the middle of slide 2 as the main page content.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000126__osf__presentation_s26/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.303 (219 tokens)</p>
       
       
@@ -1092,7 +1092,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Verdana&#x27; size=24.0/24 d=9.26mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Verdana&#x27; size=14.0/14 d=5.80mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.085 (17 tokens)</p>
       
       
@@ -1124,7 +1124,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
 7. 拖动该图片的旋转手柄将其调整至水平摆正状态，缩放至合适尺寸后移动到页面中部居中位置，作为页面的主体图表内容。</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000157__osf__presentations_s19/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.261 (241 tokens)</p>
       
       
@@ -1148,7 +1148,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=False render=False fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;MS Reference Sans Serif&#x27; size=18.0/18 d=17.37mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=False case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=False render=False fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;MS Reference Sans Serif&#x27; size=18.0/18 d=69.93mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.273 (235 tokens)</p>
       
       
@@ -1180,7 +1180,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
 7. Switch back to slide 2, paste the copied poster, drag the image&#x27;s rotation handle to straighten it to an upright vertical orientation, resize it to a medium scale, and move it to the middle right area of the slide to sit neatly in place.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000168__osf__presentations_s13/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.389 (219 tokens)</p>
       
       
@@ -1201,7 +1201,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=44.0/44 d=15.18mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=22.0/22 d=18.13mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.166 (234 tokens)</p>
       
       
@@ -1233,7 +1233,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
 7. Drag the photo&#x27;s rotation handle to straighten it to a horizontal orientation, then scale and position it as a large image in the middle right area of the slide, next to the body text.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000170__osf__presentations_s13/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.306 (241 tokens)</p>
       
       
@@ -1253,7 +1253,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=False align=True color=True ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=24.0/24 d=23.32mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Garamond&#x27; size=24.0/24 d=17.40mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.295 (286 tokens)</p>
       
       
@@ -1282,7 +1282,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
 4. Switch to slide 1, select the near-square picture showing four red prohibition symbols arranged in a 2×2 grid, copy it, return to slide 2 and paste it. Drag the pasted picture to the horizontal center of the slide directly below the title, then drag its scale handles to resize it into a large graphic filling the middle and lower portion of the slide.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000173__osf__presentations_s27/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.340 (209 tokens)</p>
       
       
@@ -1299,7 +1299,7 @@ TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=32.0/32 d=8.28mm)</pre></details><details class="checks"><summary>v1 baseline with relaxed bullet indent · 2 checks</summary><pre>OBJ Picture 4 [scale]: pos=False w=True h=True rot=True (d=30.68mm match=&#x27;Picture 1&#x27;)
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Calibri&#x27; size=32.0/32 d=8.28mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.224 (80 tokens)</p>
       
       
@@ -1327,7 +1327,7 @@ TXT CuaRestore TextBox 1: shape missing</pre></details></details>
 6. Select the tilted square QR-code picture with the Ubuntu logo in its centre on slide 1, copy it, paste it on slide 2, drag it to the centre, and rotate it upright with the rotation handle.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000183__osf__presentation_s14/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.249 (251 tokens)</p>
       
       
@@ -1347,7 +1347,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=True w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Arial&#x27; size=36.0/36 d=15.97mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=True render=True fit=True anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Hind&#x27; size=18.0/18 d=27.73mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.208 (201 tokens)</p>
       
       
@@ -1381,7 +1381,7 @@ Normal distribution&quot; into the text box, set the font to Consolas, set the &
 7. Drag the picture&#x27;s rotation handle to straighten it to horizontal orientation, then adjust its size and position so it sits centered in the middle area of the slide beneath the existing text elements.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000195__osf__presentations_s4/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.343 (198 tokens)</p>
       
       
@@ -1403,7 +1403,7 @@ TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=False render=True fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Consolas&#x27; size=48.0/48 d=11.93mm)
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=True render=True fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Consolas&#x27; size=18.0/18 d=23.95mm)</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.571 (196 tokens)</p>
       
       
@@ -1437,7 +1437,7 @@ TXT CuaRestore TextBox 2: shape missing</pre></details></details>
 9. Drag this image to the right area of the lower half of the slide, then drag its scale handles to adjust it to a suitable medium size.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000196__osf__presentations_s11/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.323 (419 tokens)</p>
       
       
@@ -1467,7 +1467,7 @@ TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=True h=True content=False render=False fit=False anchor=True rot=True fill=True (ratio=1.00 font=&#x27;Consolas&#x27; size=10.0/10 d=23.20mm)
 ZORDER visual_edges=[(&#x27;CuaRestore TextBox 1&#x27;, &#x27;Grafik 4&#x27;)] restored=[&#x27;CuaRestore TextBox 1&#x27;, &#x27;CuaRestore TextBox 2&#x27;, &#x27;Grafik 4&#x27;, &#x27;Grafik 5&#x27;] violations=[] match=True</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.340 (283 tokens)</p>
       
       
@@ -1505,7 +1505,7 @@ ZORDER visual_edges=[(&#x27;CuaRestore TextBox 1&#x27;, &#x27;Grafik 4&#x27;)] r
 7. Drag the image’s rotation handle to straighten it so it sits level, then move it to the lower-left region of the slide and adjust its size with the scale handles to fit the space.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000202__osf__presentations_s5/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.312 (309 tokens)</p>
       
       
@@ -1528,7 +1528,7 @@ OBJ Picture 2 [rotate]: pos=False w=True h=True rot=True (d=19.37mm match=&#x27;
 TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=True case=True align=True color=False ls=True bullet=True pos=True w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Calibri&#x27; size=44.0/44 d=9.29mm)
 ZORDER visual_edges=[(&#x27;Picture 4&#x27;, &#x27;Picture 2&#x27;)] restored=[&#x27;CuaRestore TextBox 1&#x27;, &#x27;Picture 4&#x27;, &#x27;Picture 2&#x27;] violations=[] match=True</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.561 (184 tokens)</p>
       
       
@@ -1565,7 +1565,7 @@ ZORDER visual_edges=[(&#x27;Picture 4&#x27;, &#x27;Picture 2&#x27;)] restored=[]
 9. Drag the padlock icon to the right side of the blue paper stripe banner, then use scale handles to resize it to a small overlay graphic in that position.</p>
         <div class="references"><figure><img src="assets/epoch1/crosspage3_000246__osf__presentations_s1/step_000.jpg" alt="Initial screenshot" loading="lazy"><figcaption>Initial desktop</figcaption></figure></div>
         <div class="comparison"><div class="model-panel">
-      <div class="model-head"><h4>Slides01 epoch 1</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Complex</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.334 (373 tokens)</p>
       
       
@@ -1591,7 +1591,7 @@ TXT CuaRestore TextBox 1: text=True font=True size=True bold=True italic=True u=
 TXT CuaRestore TextBox 2: text=True font=True size=True bold=True italic=True u=True case=True align=True color=True ls=True bullet=True pos=False w=False h=True content=False render=True fit=True anchor=True rot=True (ratio=1.00 font=&#x27;Gill Sans MT&#x27; size=16.0/16 d=68.69mm)
 ZORDER visual_edges=[(&#x27;Picture 10&#x27;, &#x27;Picture 7&#x27;)] restored=[&#x27;CuaRestore TextBox 1&#x27;, &#x27;CuaRestore TextBox 2&#x27;, &#x27;Picture 10&#x27;, &#x27;Picture 7&#x27;] violations=[] match=True</pre></details></details>
     </div><div class="model-panel">
-      <div class="model-head"><h4>3x-full iter422</h4><span class="badge fail">0 · FAIL</span></div>
+      <div class="model-head"><h4>Atomic</h4><span class="badge fail">0 · FAIL</span></div>
       <p class="subscores">strict FAIL · mm1 FAIL · v1 FAIL · generated PPL 1.021 (4589 tokens)</p>
       
       
