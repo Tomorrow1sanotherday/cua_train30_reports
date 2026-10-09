@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Train30 Function evaluation reports</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, "Microsoft YaHei", sans-serif; }
+    body { margin: 0; background: #f5f7f7; color: #17232b; }
+    header { background: #fff; border-bottom: 1px solid #cbd4d8; }
+    main, header > div { max-width: 880px; margin: auto; padding: 24px 20px; }
+    h1 { font-size: 24px; margin: 0; }
+    h2 { font-size: 17px; margin: 0 0 6px; }
+    p { margin: 0 0 14px; line-height: 1.5; }
+    section { border-bottom: 1px solid #cbd4d8; padding: 16px 0; }
+    a { color: #006d68; font-weight: 600; }
+    small { color: #53636d; }
+  </style>
+</head>
+<body>
+  <header><div><h1>Train30 Function evaluation reports</h1></div></header>
+  <main>
+    <section>
+      <h2>GT image supplied</h2>
+      <p>Slides01 epoch 1 and 3x-full iter422, 30 tasks. Function v1: 1/30 and 0/30.</p>
+      <a href="gt/report.html">Open GT report</a>
+    </section>
+    <section>
+      <h2>No GT image</h2>
+      <p>The same checkpoints and tasks without GT images. Function v1: 0/30 for both models.</p>
+      <a href="nogt/report.html">Open no-GT report</a>
+    </section>
+    <p><small>Reports include per-task judge results, generated-action PPL, action steps, and screenshots.</small></p>
+  </main>
+</body>
+</html>
